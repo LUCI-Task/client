@@ -1,14 +1,23 @@
-import React from "react";
-
-import Users from "./components/Users/Users";
-import Form from "./components/Form/Form";
+import React, { useEffect } from "react";
+//redux
+import { useDispatch } from "react-redux";
+//API
+import { getUsers } from "./action/users";
+//components
+import Users from "./components/Users";
+import Form from "./components/Form";
+import Navbar from "./components/Navbar";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getUsers());
+  // }, [dispatch]);
   return (
-    <div>
-      <h1 className="">hi from app</h1>
+    <div className="flex w-full h-screen overflow-hidden">
+      <Navbar />
       <Users />
-      <Form />
     </div>
   );
 };
