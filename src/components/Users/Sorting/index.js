@@ -43,8 +43,8 @@ const Sorting = () => {
       {/* <!-- Bottom sorting --> */}
       <div className="flex justify-between mt-6 text-gray-600 dark:text-gray-400">
         {/* <!-- Left side --> */}
-        <div className="flex pl-2 ml-10 capitalize">
-          <span className="flex items-center ml-8">
+        <div className="flex justify-center space-x-12 capitalize w-96">
+          <span className="flex items-center ">
             name
             <svg className={svgStyles} viewBox="0 0 24 24">
               <path
@@ -53,7 +53,7 @@ const Sorting = () => {
               ></path>
             </svg>
           </span>
-          <span className="flex items-center ml-24">
+          <span className="flex items-center ">
             Email
             <svg className={svgStyles} viewBox="0 0 24 24">
               <path

@@ -10,15 +10,13 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getUsers());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getUsers());
+  }, [dispatch]);
   return (
     <div className="flex w-full h-screen overflow-hidden">
       <Navbar />
       <Users />
-      {/* <Form /> */}
     </div>
   );
 };

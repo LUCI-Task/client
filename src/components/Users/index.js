@@ -16,7 +16,7 @@ const Users = () => {
           User list
         </h2>
         <Sorting />
-        <User />
+        {users && users.map((user) => <User user={user} />)}
       </div>
     </main>
   );
