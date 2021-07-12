@@ -1,5 +1,8 @@
 import React from "react";
 
+//components
+import Form from "../Form";
+
 const Navbar = () => {
   return (
     <nav className="flex flex-col w-64 px-12 pt-4 pb-6 bg-blue-500 dark:bg-gray-900">
@@ -16,13 +19,13 @@ const Navbar = () => {
         </h2>
         <span className="">Admin</span>
       </div> */}
-
-      <button className="flex items-center justify-center px-2 py-3 mt-8 font-bold text-black bg-white rounded-lg shadow dark:text-gray-200 hover:text-blue-600 dark:bg-green-500">
+      <Form />
+      {/* <button className="flex items-center justify-center px-2 py-3 mt-8 font-bold text-black bg-white rounded-lg shadow dark:text-gray-200 hover:text-blue-600 dark:bg-green-500">
         <span>Add user</span>
         <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
           <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
         </svg>
-      </button>
+      </button> */}
 
       <ul className="mt-2 text-white ">
         <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">

@@ -1,79 +1,59 @@
-import React, { useState } from "react";
-//redux
-import { useDispatch } from "react-redux";
-//API
-import { createUser } from "../../action/users";
-import FileBase from "react-file-base64";
+import React from "react";
+import Modal from "react-modal";
 
-const Form = () => {
-  const [userData, setUserData] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    selectedFile: "",
-    status: "",
-  });
-  const dispatch = useDispatch();
+//components
+import Form from "./Form";
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(createUser(userData));
-    setUserData({
-      first_name: "",
-      last_name: "",
-      email: "",
-      selectedFile: "",
-      status: "",
-    });
-  };
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
+const ModalComponent = () => {
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    return;
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   return (
     <div>
-      <form
-        className="bg-red-100"
-        autoComplete="off"
-        noValidate
-        onSubmit={submitHandler}
+      <button
+        onClick={openModal}
+        className="flex items-center justify-center w-full px-2 py-3 mt-8 font-bold text-black bg-white rounded-lg shadow outline-none dark:text-gray-200 hover:text-blue-600 dark:bg-green-500"
       >
-        <label>
-          Name:
-          <input
-            className="text-black bg-gray "
-            type="text"
-            name="first name"
-            value={userData.first_name}
-            onChange={(e) =>
-              setUserData({ ...userData, first_name: e.target.value })
-            }
-          />
-          <input
-            type="text"
-            name="last name"
-            value={userData.last_name}
-            onChange={(e) =>
-              setUserData({ ...userData, last_name: e.target.value })
-            }
-          />
-          <input
-            type="email"
-            name="email"
-            value={userData.email}
-            onChange={(e) =>
-              setUserData({ ...userData, email: e.target.value })
-            }
-          />
-        </label>
-        <FileBase
-          type="file"
-          multiple={false}
-          onDone={({ base64 }) =>
-            setUserData({ ...userData, selectedFile: base64 })
-          }
-        />
-        <input type="submit" value="Submit" />
-      </form>
+        <span>Add user</span>
+        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+        </svg>
+      </button>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={() => afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <Form close={closeModal} />
+      </Modal>
     </div>
   );
 };
 
-export default Form;
+export default ModalComponent;

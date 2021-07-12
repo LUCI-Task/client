@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getUsers } from "./action/users";
 //components
 import Users from "./components/Users";
-import Form from "./components/Form";
+// import Form from "./components/Form/Form";
 import Navbar from "./components/Navbar";
 
 const App = () => {
@@ -18,6 +18,7 @@ const App = () => {
     <div className="flex w-full h-screen overflow-hidden">
       <Navbar />
       <Users />
+      {/* <Form /> */}
     </div>
   );
 };
