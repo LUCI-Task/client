@@ -20,15 +20,8 @@ const Navbar = () => {
         <span className="">Admin</span>
       </div> */}
       <Form />
-      {/* <button className="flex items-center justify-center px-2 py-3 mt-8 font-bold text-black bg-white rounded-lg shadow dark:text-gray-200 hover:text-blue-600 dark:bg-green-500">
-        <span>Add user</span>
-        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
-        </svg>
-      </button> */}
-
       <ul className="mt-2 text-white ">
-        <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
+        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
           <a href="#home" className="flex pl-4">
             <svg
               className="w-5 h-5 fill-current dark:text-gray-300"
@@ -44,9 +37,9 @@ const Navbar = () => {
               dashboard
             </span>
           </a>
-        </li>
+        </li> */}
 
-        <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
+        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
           <a href="#home" className="flex pl-4">
             <svg
               className="w-5 h-5 fill-current dark:text-gray-300"
@@ -62,7 +55,7 @@ const Navbar = () => {
               calendar
             </span>
           </a>
-        </li>
+        </li> */}
 
         <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
           <a href="#home" className="flex pl-4">
@@ -79,7 +72,7 @@ const Navbar = () => {
           </a>
         </li>
 
-        <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
+        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
           <a href="#home" className="flex pl-4">
             <svg
               className="w-5 h-5 fill-current dark:text-gray-300"
@@ -95,7 +88,7 @@ const Navbar = () => {
               tasks
             </span>
           </a>
-        </li>
+        </li> */}
       </ul>
 
       <div className="flex items-center mt-auto font-extrabold text-black hover:text-red-400">

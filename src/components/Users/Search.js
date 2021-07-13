@@ -3,7 +3,7 @@ import React from "react";
 const Search = () => {
   return (
     <div className="flex items-center h-16 select-none ">
-      <span className="mr-3 transition duration-500 ease-in-out cursor-pointer hover:text-green-500 dark-hover:text-green-300">
+      <span className="mr-3 transition duration-500 ease-in-out cursor-pointer hover:text-gray-500 dark-hover:text-green-300">
         <svg viewBox="0 0 512 512" className="w-5 h-5 fill-current">
           <path
             d="M505 442.7L405.3
