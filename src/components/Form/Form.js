@@ -49,7 +49,7 @@ const Form = ({ close, userId }) => {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen px-4 py-12 sm:px-6 lg:px-8">
+    <div className="relative flex items-center justify-center h-auto px-4 py-12 sm:px-6 lg:px-8">
       <div className="z-10 w-full max-w-md p-10 space-y-8 shadow-lg rounded-xl">
         <div className="grid grid-cols-1 gap-8">
           <div className="flex flex-col ">
@@ -66,8 +66,11 @@ const Form = ({ close, userId }) => {
                     <div className="flex-none w-20 h-20 mr-4 overflow-hidden border rounded-xl">
                       <img
                         className="object-cover w-20 h-20 mr-4"
-                        src="https://images.unsplash.com/photo-1611867967135-0faab97d1530?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1352&amp;q=80"
-                        alt="Avatar Upload"
+                        src={
+                          userData.selectedFile ||
+                          `https://robohash.org/${userData.first_name}?set=set2`
+                        }
+                        alt={userData.first_name}
                       />
                     </div>
 

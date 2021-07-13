@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = () => {
+const Search = ({ search, handleChange }) => {
   return (
     <div className="flex items-center h-16 select-none ">
       <span className="mr-3 transition duration-500 ease-in-out cursor-pointer hover:text-gray-500 dark-hover:text-green-300">
@@ -20,6 +20,9 @@ const Search = () => {
 
       <input
         className="w-64 bg-transparent focus:outline-none "
+        type="text"
+        value={search}
+        onChange={handleChange}
         placeholder="Search for User..."
       />
     </div>

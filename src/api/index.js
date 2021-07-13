@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3333/users";
+const url = "http://localhost:5000/users";
 
 export const fetchUsers = () => axios.get(url);
 export const fetchUser = (id) => axios.get(`${url}/${id}`);

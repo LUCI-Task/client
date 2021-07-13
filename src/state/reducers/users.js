@@ -1,7 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import {
   FETCH_ALL_USERS,
-  FETCH_SINGLE_USERS,
   CREATE_NEW_USER,
   UPDATE_USER,
   DELETE_USER,
@@ -10,8 +9,6 @@ import {
 export default (users = [], action) => {
   switch (action.type) {
     case FETCH_ALL_USERS:
-      return action.payload;
-    case FETCH_SINGLE_USERS:
       return action.payload;
     case CREATE_NEW_USER:
       return [...users, action.payload];

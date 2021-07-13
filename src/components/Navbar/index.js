@@ -21,42 +21,6 @@ const Navbar = () => {
       </div> */}
       <Form />
       <ul className="mt-2 text-white ">
-        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
-          <a href="#home" className="flex pl-4">
-            <svg
-              className="w-5 h-5 fill-current dark:text-gray-300"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M16 20h4v-4h-4m0-2h4v-4h-4m-6-2h4V4h-4m6
-							4h4V4h-4m-6 10h4v-4h-4m-6 4h4v-4H4m0 10h4v-4H4m6
-							4h4v-4h-4M4 8h4V4H4v4z"
-              ></path>
-            </svg>
-            <span className="ml-2 font-medium text-black capitalize dark:text-gray-300">
-              dashboard
-            </span>
-          </a>
-        </li> */}
-
-        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
-          <a href="#home" className="flex pl-4">
-            <svg
-              className="w-5 h-5 fill-current dark:text-gray-300"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2
-							2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0
-							00-2-2h-1V1m-1 11h-5v5h5v-5z"
-              ></path>
-            </svg>
-            <span className="ml-2 font-medium text-black capitalize dark:text-gray-300">
-              calendar
-            </span>
-          </a>
-        </li> */}
-
         <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
           <a href="#home" className="flex pl-4">
             <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -71,24 +35,6 @@ const Navbar = () => {
             </span>
           </a>
         </li>
-
-        {/* <li className="py-2 mt-8 hover:shadow hover:bg-white hover:dark:bg-gray-200 hover:rounded-full ">
-          <a href="#home" className="flex pl-4">
-            <svg
-              className="w-5 h-5 fill-current dark:text-gray-300"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 13H7v5h5v2H5V10h2v1h5v2M8
-							4v2H4V4h4m2-2H2v6h8V2m10 9v2h-4v-2h4m2-2h-8v6h8V9m-2
-							9v2h-4v-2h4m2-2h-8v6h8v-6z"
-              ></path>
-            </svg>
-            <span className="ml-2 font-medium text-black capitalize select-none dark:text-gray-300">
-              tasks
-            </span>
-          </a>
-        </li> */}
       </ul>
 
       <div className="flex items-center mt-auto font-extrabold text-black hover:text-red-400">

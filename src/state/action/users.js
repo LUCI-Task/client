@@ -2,7 +2,6 @@ import * as api from "../../api";
 
 import {
   FETCH_ALL_USERS,
-  FETCH_SINGLE_USERS,
   CREATE_NEW_USER,
   UPDATE_USER,
   DELETE_USER,
@@ -13,15 +12,6 @@ export const getUsers = () => async (dispatch) => {
   try {
     const { data } = await api.fetchUsers();
     dispatch({ type: FETCH_ALL_USERS, payload: data });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-export const getUser = (id) => async (dispatch) => {
-  try {
-    const { data } = await api.fetchUser(id);
-    dispatch({ type: FETCH_SINGLE_USERS, payload: data });
   } catch (err) {
     console.log(err);
   }

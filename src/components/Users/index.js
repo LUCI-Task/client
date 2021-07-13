@@ -9,10 +9,11 @@ import Search from "./Search";
 import Sorting from "./Sorting";
 
 const Users = () => {
+  const [data, SetData] = useState([]);
   const users = useSelector((state) => state.users);
-  const myData = [].concat(users);
-  const [sortValue, setSortValue] = useState("first_name");
+  const [sortValue, setSortValue] = useState("");
   const [order, setOrder] = useState(false);
+  const [search, setSearch] = useState("");
 
   function compareValues(key, order = "asc") {
     return function innerSort(a, b) {
@@ -32,27 +33,35 @@ const Users = () => {
       return order === "desc" ? comparison * -1 : comparison;
     };
   }
-  useEffect(() => {}, [users]);
+  function handleChange(e) {
+    setSearch(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1));
+  }
+
+  useEffect(() => {
+    SetData([].concat(users));
+  }, [users]);
 
   return (
     <>
       <main className="flex flex-col flex-1 mx-auto bg-gray-100 ">
         <div className="w-full pb-4 mx-auto px-9 ">
-          <Search />
+          <Search handleChange={handleChange} search={search} />
           <h2 className="py-6 text-4xl font-semibold text-center text-gray-400">
-            User Management Dashboard.
+            User Management Dashboard
           </h2>
           <Sorting
             setOrder={setOrder}
             order={order}
             setSortValue={setSortValue}
+            sortValue={sortValue}
           />
         </div>
         <div className="mx-10 my-2 overflow-y-auto transition duration-500 ease-in-out ">
           {users.length ? (
-            myData
+            data
+              .filter((person) => person.first_name.includes(search))
               .sort(compareValues(sortValue, `${order && "desc"}`))
-              .map((item, i) => <User key={i} user={item} />)
+              .map((item) => <User key={item._id} user={item} />)
           ) : (
             <div className="py-20 text-center">
               <ScaleLoader />

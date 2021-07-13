@@ -4,7 +4,7 @@ import PuffLoader from "react-spinners/PuffLoader";
 import { useDispatch } from "react-redux";
 //API
 import { getUsers } from "./state/action/users";
-// import Form from "./components/Form/Form";
+//components
 import Navbar from "./components/Navbar";
 
 // lazy load

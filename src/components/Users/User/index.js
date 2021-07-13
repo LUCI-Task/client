@@ -6,7 +6,6 @@ import classNames from "classnames";
 import Actions from "./Actions";
 
 const User = ({ user }) => {
-  console.log(user);
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -14,7 +13,7 @@ const User = ({ user }) => {
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       className={classNames(
-        "flex justify-between px-4 py-4 mt-2 bg-white rounded-lg shadow-xl cursor-pointer ",
+        "flex justify-between px-4 py-4 mt-5 bg-white rounded-lg shadow-xl cursor-pointer ",
         {
           "bg-gray-100": isShown,
         }
@@ -38,7 +37,7 @@ const User = ({ user }) => {
           </span>
         </div>
         <div className={classNames("opacity-0", { "opacity-100": isShown })}>
-          <Actions userId={user._id} />
+          <Actions user={user} />
         </div>
 
         <div className="flex justify-end w-full mx-6 space-x-3 text-center ">
