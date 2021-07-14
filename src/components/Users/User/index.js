@@ -7,7 +7,6 @@ import Actions from "./Actions";
 
 const User = ({ user }) => {
   const [isShown, setIsShown] = useState(false);
-
   return (
     <div
       onMouseEnter={() => setIsShown(true)}

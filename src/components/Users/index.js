@@ -9,8 +9,9 @@ import Search from "./Search";
 import Sorting from "./Sorting";
 
 const Users = () => {
-  const [data, SetData] = useState([]);
   const users = useSelector((state) => state.users);
+
+  const [data, SetData] = useState([]);
   const [sortValue, setSortValue] = useState("");
   const [order, setOrder] = useState(false);
   const [search, setSearch] = useState("");
@@ -37,6 +38,9 @@ const Users = () => {
     setSearch(e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1));
   }
 
+  function getCurent() {
+    window.location.reload();
+  }
   useEffect(() => {
     SetData([].concat(users));
   }, [users]);
@@ -54,9 +58,10 @@ const Users = () => {
             order={order}
             setSortValue={setSortValue}
             sortValue={sortValue}
+            getCurent={getCurent}
           />
         </div>
-        <div className="mx-10 my-2 overflow-y-auto transition duration-500 ease-in-out ">
+        <div className="pt-12 mx-10 my-2 overflow-y-auto transition duration-500 ease-in-out">
           {users.length ? (
             data
               .filter((person) => person.first_name.includes(search))

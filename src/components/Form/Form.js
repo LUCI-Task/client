@@ -25,7 +25,7 @@ const Form = ({ close, userId }) => {
 
   useEffect(() => {
     if (userId) setUserData(existingUser);
-  }, [existingUser]);
+  }, [existingUser, userId]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -75,9 +75,6 @@ const Form = ({ close, userId }) => {
                     </div>
 
                     <label className="outline-none cursor-pointer">
-                      {/* TODO: 
-                      file takes up the entire browser screen
-                      */}
                       <FileBase
                         type="file"
                         multiple={false}
@@ -164,14 +161,23 @@ const Form = ({ close, userId }) => {
                         setUserData({ ...userData, project: e.target.value })
                       }
                     >
-                      <option value="" disabled>
-                        Select Project
-                      </option>
-                      <option value="Manhattan Project">
-                        Manhattan Project
-                      </option>
-                      <option value="Apollo">Apollo</option>
-                      <option value="Code Talkers">Code Talkers</option>
+                      {[
+                        null,
+                        "Apollo",
+                        "Code Talkers",
+                        "Titan",
+                        "Manhattan Project",
+                        "Code Talkers",
+                        "Durango",
+                        "Project 404",
+                        "Project Hanks",
+                        "Project Blue Book",
+                        "X Lab",
+                      ].map((item) => (
+                        <option value={item} key={item}>
+                          {item}
+                        </option>
+                      ))}
                     </select>
                     <p className="hidden mt-3 text-sm text-red-500" id="error">
                       Please fill out this field.
@@ -189,24 +195,28 @@ const Form = ({ close, userId }) => {
                         setUserData({ ...userData, role: e.target.value })
                       }
                     >
-                      <option value="" disabled>
-                        Select Role
-                      </option>
-                      <option value="Software engineer">
-                        Software engineer
-                      </option>
-                      <option value="Data scientist">Data scientist</option>
-                      <option value="IT security specialist">
-                        IT security specialist
-                      </option>
-                      <option value="Network administrator">
-                        Network administrator
-                      </option>
-                      <option value="Quality Assurance">
-                        Quality Assurance
-                      </option>
-                      <option value="Human resources">Human resources</option>
-                      <option value="QA Test Engineer">QA Test Engineer</option>
+                      {[
+                        null,
+                        "Software engineer",
+                        "Data scientist",
+                        "IT security specialist",
+                        "Network administrator",
+                        "Quality Assurance",
+                        "Human resources",
+                        "QA Test Engineer",
+                        "Chief Troublemaker",
+                        "Digital prophet",
+                        "Ambassador of buzz",
+                        "Master of Disaster",
+                        "Ethical Hacking",
+                        "Genius",
+                        "VP of Misc. Stuff",
+                        "Sous chef",
+                      ].map((role) => (
+                        <option value={role} key={role}>
+                          {role}
+                        </option>
+                      ))}
                     </select>
                     <p className="hidden mt-3 text-sm text-red-500" id="error">
                       Please fill out this field.

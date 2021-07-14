@@ -4,7 +4,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 //redux
 import { useSelector } from "react-redux";
 
-const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
+const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
   const state = useSelector((state) => state.users);
 
   const counter = (arr, keyword) => {
@@ -73,6 +73,7 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
                 const outputText = leftSort(leftText);
                 return (
                   <button
+                    key={leftText}
                     className="font-bold capitalize outline-none focus:text-blue-600 hover:underline"
                     onClick={() => setSortValue(outputText)}
                   >
@@ -111,9 +112,8 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
 
             <div className="flex justify-end w-6/12 space-x-12 capitalize pr-44 ">
               {rightButtons.map((btn) => {
-                // const text = txt(btn);
                 return (
-                  <div className="flex w-20 ">
+                  <div className="flex w-20 " key={btn}>
                     <button
                       onClick={() => setSortValue(btn)}
                       className="w-10 font-bold capitalize outline-none focus:text-blue-600 hover:underline"

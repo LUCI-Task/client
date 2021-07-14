@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/users";
+const url = "http://localhost:5000";
 
-export const fetchUsers = () => axios.get(url);
-export const fetchUser = (id) => axios.get(`${url}/${id}`);
-export const createUser = (newUser) => axios.post(url, newUser);
-export const updateUser = (id, info) => axios.patch(`${url}/${id}`, info);
-export const deleteUser = (id) => axios.delete(`${url}/${id}`);
+const API = axios.create({ baseURL: `${url}` });
 
-//other
-export const queryBy = (query) => axios.get(url);
+export const fetchUsers = () => API.get("/users");
+export const fetchUser = (id) => API.get(`/users/${id}`);
+export const createUser = (newUser) => API.post("/users", newUser);
+export const updateUser = (id, info) => API.patch(`/users/${id}`, info);
+export const deleteUser = (id) => API.delete(`users/${id}`);
