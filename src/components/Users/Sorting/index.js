@@ -4,7 +4,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 //redux
 import { useSelector } from "react-redux";
 
-const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
+const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
   const state = useSelector((state) => state.users);
 
   const counter = (arr, keyword) => {
@@ -44,7 +44,7 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
     <>
       {state.length ? (
         <div>
-          <div className="flex items-center justify-between pb-2 text-gray-600 border-b dark:text-gray-400 dark:border-gray-600">
+          <div className="flex items-center justify-between pb-2 text-gray-600 border-b ">
             <div className="text-gray-500">
               <span>
                 users-
@@ -67,8 +67,8 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
             </div>
           </div>
 
-          <div className="flex justify-between mt-6 text-gray-400 dark:text-gray-400">
-            <div className="flex justify-around w-64 ml-12 ">
+          <div className="flex justify-between mt-6 text-gray-400 ">
+            <div className="flex flex-col justify-around lg:flex-row w-28 md:w-64 md:ml-12 ">
               {leftButtons.map((leftText) => {
                 const outputText = leftSort(leftText);
                 return (
@@ -85,7 +85,7 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
 
             <div
               className={classNames(
-                "w-20 px-5 text-center text-blue-600 shadow-sm opacity-0",
+                " w-20 px-5 text-center text-blue-600 opacity-0 ",
                 {
                   "opacity-100": sortValue.length !== 0,
                 }
@@ -93,24 +93,24 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order, getCurent }) => {
             >
               <button
                 onClick={() => setOrder(!order)}
-                className="m-1 shadow-lg outline-none"
+                className="m-1 text-3xl outline-none"
               >
-                <svg
-                  className="w-8 h-8 text-blue-600 fill-current "
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M18 21l-4-4h3V7h-3l4-4 4 4h-3v10h3M2
-								19v-2h10v2M2 13v-2h7v2M2 7V5h4v2H2z"
-                  ></path>
-                </svg>
+                {order ? (
+                  <>
+                    <i class="fas fa-chevron-down"></i>
+                  </>
+                ) : (
+                  <>
+                    <i class="fas fa-chevron-up"></i>
+                  </>
+                )}
               </button>
-              <p className="text-sm capitalize opacity-70">
+              <p className="text-xs capitalize opacity-70">
                 {SortGuideTxt(sortValue)}
               </p>
             </div>
 
-            <div className="flex justify-end w-6/12 space-x-12 capitalize pr-44 ">
+            <div className="flex flex-col justify-end w-3/12 pr-2 capitalize lg:space-x-12 lg:flex-row lg:w-6/12 md:pr-44">
               {rightButtons.map((btn) => {
                 return (
                   <div className="flex w-20 " key={btn}>

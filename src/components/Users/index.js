@@ -47,7 +47,7 @@ const Users = () => {
 
   return (
     <>
-      <main className="flex flex-col flex-1 mx-auto bg-gray-100 ">
+      <main className="flex flex-col flex-1 bg-gray-100 xl:mx-auto ">
         <div className="w-full pb-4 mx-auto px-9 ">
           <Search handleChange={handleChange} search={search} />
           <h2 className="py-6 text-4xl font-semibold text-center text-gray-400">

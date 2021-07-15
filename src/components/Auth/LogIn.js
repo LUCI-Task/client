@@ -26,7 +26,7 @@ const LogIn = () => {
       clientId={process.env.REACT_APP_GOOGLE_ID}
       render={(renderProps) => (
         <button
-          className="flex items-center justify-center w-full px-2 py-3 mt-8 font-bold bg-white rounded-lg shadow outline-none dark:text-gray-200 "
+          className="flex items-center justify-center px-2 py-3 mt-8 font-bold bg-white rounded-lg shadow outline-none dark:text-gray-200 "
           color="primary"
           onClick={renderProps.onClick}
           disabled={renderProps.disabled}

@@ -12,26 +12,26 @@ const User = ({ user }) => {
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       className={classNames(
-        "flex justify-between px-4 py-4 mt-5 bg-white rounded-lg shadow-xl cursor-pointer ",
+        "flex justify-between sm:px-4 sm:py-4 mt-5 bg-white rounded-lg shadow-xl cursor-pointer ",
         {
           "bg-gray-100": isShown,
         }
       )}
     >
-      <div className="flex justify-between w-full">
+      <div className="flex justify-end w-11/12 sm:w-full sm:justify-between ">
         <img
-          className="object-cover w-12 h-12 rounded-full"
+          className="invisible object-cover w-12 h-12 rounded-full sm:visible "
           src={
             user.selectedFile ||
             `https://robohash.org/${user.first_name}?set=set2`
           }
-          alt=""
+          alt={user.first_name}
         />
-        <div className="flex justify-start w-full ml-3 space-x-5 ">
-          <span className="mt-2 text-black w-28 dark:text-gray-200">
+        <div className="flex flex-col justify-start w-full ml-1 space-x-0 sm:ml-10 lg:ml-3 lg:space-x-5 lg:flex-row ">
+          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base ">
             {`${user.first_name}  ${user.last_name}`}
           </span>
-          <span className="mt-2 text-black w-28 dark:text-gray-200">
+          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base">
             {user.email}
           </span>
         </div>
@@ -39,18 +39,24 @@ const User = ({ user }) => {
           <Actions user={user} />
         </div>
 
-        <div className="flex justify-end w-full mx-6 space-x-3 text-center ">
-          <span className="mt-2 text-black w-28">{user.project}</span>
-          <span className="mt-2 text-black w-28">{user.role}</span>
+        <div className="flex flex-col justify-end w-7/12 text-center sm:mx-6 lg:w-full lg:space-x-3 lg:flex-row">
+          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base ">
+            {user.project}
+          </span>
+          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base ">
+            {user.role}
+          </span>
           <span
-            className={classNames("mt-2 w-28", {
+            className={classNames("mt-2 w-28 text-sm lg:text-base", {
               "text-red-500": user.status === "Offline",
               "text-green-500": user.status === "Online",
             })}
           >
             {user.status}
           </span>
-          <span className="mt-2 w-28">{moment(user.createdAt).fromNow()}</span>
+          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base ">
+            {moment(user.createdAt).fromNow()}
+          </span>
         </div>
       </div>
     </div>

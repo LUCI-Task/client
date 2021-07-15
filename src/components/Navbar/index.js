@@ -9,7 +9,7 @@ const Navbar = () => {
   const admin = useSelector((state) => state.auth.authData);
 
   return (
-    <nav className="flex flex-col w-64 px-12 pt-4 pb-6 bg-blue-500 dark:bg-gray-900">
+    <nav className="flex flex-col items-center w-full px-12 pt-4 pb-6 bg-blue-500 xl:justify-center xl:w-64 dark:bg-gray-900">
       <div className="flex flex-row items-center justify-between pb-2 border-b"></div>
       {/* <!-- ADMIN info --> */}
       {!admin ? (
@@ -18,14 +18,14 @@ const Navbar = () => {
         <>
           <div className="mt-8 ">
             <img
-              className="object-cover w-12 h-12 rounded-full"
+              className="object-cover w-20 h-20 rounded-full"
               src={admin.result.imageUrl}
               alt={admin.result.name}
             />
             <h2 className="mt-4 text-lg font-extrabold capitalize">
               Hi, {admin.result.name}
             </h2>
-            <span className="text-white ">Admin</span>
+            <span className="text-xs text-gray-300 ">Admin</span>
           </div>
           <FormModal />
 

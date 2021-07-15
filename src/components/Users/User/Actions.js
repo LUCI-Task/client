@@ -12,7 +12,7 @@ const Actions = ({ user }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex content-center w-full px-6 py-3 ">
+    <div className="flex flex-col content-center w-full py-3 sm:px-6 sm:flex-row">
       {admin && (
         <>
           {/* VIew user bio */}
@@ -37,7 +37,7 @@ const Actions = ({ user }) => {
               />
             </svg>
 
-            <p class="opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 bottom-full pointer-events-none -left-12">
+            <p class="opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 px-1 absolute z-10 group-hover:opacity-100 bottom-full pointer-events-none -left-12">
               {bio !== "" ? bio : `My name is ${first_name}, and I am ${role}`}
               <svg
                 class="absolute text-black h-2 w-full left-0 top-full"

@@ -16,7 +16,7 @@ const App = () => {
     dispatch(getUsers());
   }, [dispatch]);
   return (
-    <div className="flex w-full h-screen overflow-hidden">
+    <div className="flex flex-col w-full h-screen xl:flex-row ">
       <Navbar />
       <Suspense maxDuration={100} fallback={<PuffLoader />}>
         <HomePage />
