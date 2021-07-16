@@ -1,44 +1,21 @@
 import React from "react";
 import classNames from "classnames";
-import ScaleLoader from "react-spinners/ScaleLoader";
+
 //redux
 import { useSelector } from "react-redux";
+
+//helper funcs
+import {
+  counter,
+  SortGuideTxt,
+  leftSort,
+} from "../../../HelperFunctions/Helpers";
 
 const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
   const state = useSelector((state) => state.users);
 
-  const counter = (arr, keyword) => {
-    const res = {};
-    arr.forEach((obj) => {
-      const key = `${obj.key}${obj[`${keyword}`]}`;
-      if (!res[key]) {
-        res[key] = { ...obj, count: 0 };
-      }
-      res[key].count += 1;
-    });
-    return Object.values(res);
-  };
-
   const leftButtons = ["name", "email"];
   const rightButtons = ["project", "role", "status"];
-
-  const SortGuideTxt = (t) => {
-    switch (t) {
-      case "first_name":
-        return "Name";
-      default:
-        return t;
-    }
-  };
-
-  const leftSort = (t) => {
-    switch (t) {
-      case "name":
-        return "first_name";
-      default:
-        return t;
-    }
-  };
 
   return (
     <>
@@ -126,11 +103,7 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
             </div>
           </div>
         </div>
-      ) : (
-        <div className="text-center ">
-          <ScaleLoader />
-        </div>
-      )}
+      ) : null}
     </>
   );
 };

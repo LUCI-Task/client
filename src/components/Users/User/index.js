@@ -28,7 +28,10 @@ const User = ({ user }) => {
           alt={user.first_name}
         />
         <div className="flex flex-col justify-start w-full ml-1 space-x-0 sm:ml-10 lg:ml-3 lg:space-x-5 lg:flex-row ">
-          <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base ">
+          <span
+            data-testid="user-data"
+            className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base "
+          >
             {`${user.first_name}  ${user.last_name}`}
           </span>
           <span className="mt-2 text-xs text-black sm:text-sm w-28 lg:text-base">
