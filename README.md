@@ -1,5 +1,5 @@
 
-You can find the deployed project on [Netlify](https://luci-user-management.netlify.app/).
+##=== You can find the deployed project on [Netlify](https://luci-user-management.netlify.app/). ===
 
 ## Project Overview
 https://github.com/LUCI-Task/client
@@ -30,4 +30,4 @@ To get the server running locally:
 ### ESLint && Prettier
 - Configuration is already set up
 
-### [Check out the Back End](https://github.com/LUCI-Task/server) built using:
+### [Check out the Back End](https://github.com/LUCI-Task/server):
