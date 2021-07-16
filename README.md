@@ -1,5 +1,5 @@
 
-# You can find the deployed project on [Netlify](https://luci-user-management.netlify.app/).
+# You can find the deployed project on [Here:](https://luci-user-management.netlify.app/).
 
 ## Project Overview
 https://github.com/LUCI-Task/client
@@ -9,7 +9,7 @@ https://github.com/LUCI-Task/client
 
 ## Tech Stack
 
-### Front end built using:
+## Front end built using:
 
 - [React](https://reactjs.org/): Current industry standard for web applications, using React let us displaying large amounts of data effectively by implementing Components. It is also very scalable, perfect for large applications with huge growth potential.
 - [Redux](https://redux.js.org/): Centralizes our application's state and logic, easy to test/debug, works with any UI layer
@@ -27,7 +27,7 @@ To get the server running locally:
 - For testing
 - **npm run test** 
 
-### ESLint && Prettier
+## ESLint && Prettier
 - Configuration is already set up
 
-### [Check out the Back End](https://github.com/LUCI-Task/server):
+## [Check out the Back End](https://github.com/LUCI-Task/server):
