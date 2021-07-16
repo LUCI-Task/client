@@ -30,4 +30,4 @@ To get the server running locally:
 ## ESLint && Prettier
 - Configuration is already set up
 
-## [Check out the Back End](https://github.com/LUCI-Task/server):
+# [Go to Back End](https://github.com/LUCI-Task/server)=>
