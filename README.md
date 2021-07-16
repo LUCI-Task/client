@@ -4,8 +4,8 @@ You can find the deployed project on [Netlify](https://luci-user-management.netl
 ## Project Overview
 https://github.com/LUCI-Task/client
 
-![User management dashboard](https://github.com/LUCI-Task/client/project.jpg?raw=true)
-![User management dashboard](https://github.com/LUCI-Task/client/projectEx.jpg?raw=true)
+![User management dashboard](project.jpg?raw=true)
+![User management dashboard](projectEx.jpg?raw=true)
 
 ## Tech Stack
 
