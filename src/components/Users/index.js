@@ -15,7 +15,6 @@ const Users = () => {
   const users = useSelector((state) => state.users);
   const admin = useSelector((state) => state.auth.authData);
 
-  console.log(admin);
   const [data, SetData] = useState([]);
   const [sortValue, setSortValue] = useState("");
   const [order, setOrder] = useState(false);

@@ -20,7 +20,7 @@ const LogIn = () => {
   };
 
   const googleError = (response) => console.log(response);
-  console.log(process.env.REACT_APP_GOOGLE_ID);
+
   return (
     <GoogleLogin
       clientId={process.env.REACT_APP_GOOGLE_ID}
