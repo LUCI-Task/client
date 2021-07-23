@@ -79,11 +79,11 @@ export default function Sorting({
               >
                 {order ? (
                   <>
-                    <i class="fas fa-chevron-down"></i>
+                    <i className="fas fa-chevron-down"></i>
                   </>
                 ) : (
                   <>
-                    <i class="fas fa-chevron-up"></i>
+                    <i className="fas fa-chevron-up"></i>
                   </>
                 )}
               </button>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
-import ScaleLoader from "react-spinners/ScaleLoader";
 import LazyLoadPlaceholder from "./Placeholder";
 import Sorting from "./Sorting";
 import { compareValues } from "../../HelperFunctions/Helpers";
@@ -46,7 +45,7 @@ export default function Users() {
               .filter((person) => person.first_name.includes(search))
               .sort(compareValues(sortValue, `${order && "desc"}`))
               .map((item) => (
-                <Suspense fallback={<LazyLoadPlaceholder />}>
+                <Suspense key={item._id} x fallback={<LazyLoadPlaceholder />}>
                   <UserList
                     data-testid="user-data"
                     key={item._id}
