@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-//redux
 import { useDispatch, useSelector } from "react-redux";
-//API
-import { createUser, updateUser } from "../../state/action/users";
-
+import { createUser, updateUser } from "../../state/actions/users";
 import FileBase from "react-file-base64";
 import classNames from "classnames";
 
-const Form = ({ close, userId }) => {
+export default function Form({ close, userId }) {
   const dispatch = useDispatch();
   const existingUser = useSelector((state) =>
     userId ? state.users.find((u) => u._id === userId) : null
@@ -63,7 +60,7 @@ const Form = ({ close, userId }) => {
               <form onSubmit={submitHandler} className="form">
                 <div className="mb-3 md:space-y-2">
                   <div className="flex items-center py-6">
-                    <div className="flex-none w-20 h-20 mr-4 overflow-hidden border rounded-xl">
+                    <div className="flex-none w-20 h-20 mr-4 overflow-hidden border rounded-xl bg">
                       <img
                         className="object-cover w-20 h-20 mr-4"
                         src={
@@ -97,7 +94,10 @@ const Form = ({ close, userId }) => {
                       required="required"
                       type="text"
                       name="first name"
-                      value={userData.first_name}
+                      value={
+                        userData.first_name.charAt(0).toUpperCase() +
+                        userData.first_name.slice(1)
+                      }
                       onChange={(e) =>
                         setUserData({ ...userData, first_name: e.target.value })
                       }
@@ -116,7 +116,10 @@ const Form = ({ close, userId }) => {
                       required="required"
                       type="text"
                       name="last name"
-                      value={userData.last_name}
+                      value={
+                        userData.last_name.charAt(0).toUpperCase() +
+                        userData.last_name.slice(1)
+                      }
                       onChange={(e) =>
                         setUserData({ ...userData, last_name: e.target.value })
                       }
@@ -295,6 +298,4 @@ const Form = ({ close, userId }) => {
       </div>
     </div>
   );
-};
-
-export default Form;
+}

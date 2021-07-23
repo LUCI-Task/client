@@ -1,14 +1,14 @@
 import React from "react";
-//redux
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser } from "../../../state/action/users";
-
-//components
+import { deleteUser } from "../../../state/actions/users";
+import classNames from "classnames";
 import Form from "../../Form";
 
-const Actions = ({ user }) => {
+export default function Actions({ user, isShown }) {
   const admin = useSelector((state) => state.auth.authData);
-  const { bio, _id, first_name, role } = user;
+  const { bio, _id, first_name, role, project, status, last_name, email } =
+    user;
+
   const dispatch = useDispatch();
 
   return (
@@ -37,20 +37,58 @@ const Actions = ({ user }) => {
               />
             </svg>
 
-            <p class="opacity-0 w-28 bg-black text-white text-center text-xs rounded-lg py-2 px-1 absolute z-10 group-hover:opacity-100 bottom-full pointer-events-none -left-12">
-              {bio !== "" ? bio : `My name is ${first_name}, and I am ${role}`}
-              <svg
-                class="absolute text-black h-2 w-full left-0 top-full"
-                x="0px"
-                y="0px"
-                viewBox="0 0 255 255"
-              >
-                <polygon class="fill-current" points="0,0 127.5,127.5 255,0" />
-              </svg>
-            </p>
+            <section class="opacity-0 w-64 sm:w-96  h-auto bg-white text-black text-center text-xs rounded-lg py-6 px-6 absolute group-hover:opacity-100 pointer-events-none -left-36 shadow-xl border-2 border-gray mt-3">
+              <div class="flex photo-wrapper ">
+                <img
+                  class="w-12 h-12 rounded-full object-cover mx-auto bg-gray-100 mr-22"
+                  src={
+                    user.selectedFile ||
+                    `https://robohash.org/${user.first_name}?set=set2`
+                  }
+                  alt={first_name}
+                />
+              </div>
+              <div class="p-2 ">
+                <h3 class="text-center text-xl text-gray-900 font-medium leading-8">
+                  {first_name} {last_name}{" "}
+                  <span
+                    className={classNames(
+                      "inline-block w-3 h-3 rounded-full text-sm lg:text-base",
+                      {
+                        "bg-red-500": status === "Offline",
+                        "bg-green-500": status === "Online",
+                      }
+                    )}
+                  ></span>
+                </h3>
+                <div class="text-center text-gray-400 text-xs font-semibold">
+                  <p>{role}</p>
+                </div>
+                <table class="text-xs my-3 mx-auto">
+                  <tbody>
+                    <tr>
+                      <td class="px-2 py-2  font-semibold">Email:</td>
+                      <td class="px-2 py-2">{email}</td>
+                    </tr>
+                    <tr>
+                      <td class="px-2 py-2  font-semibold">Project:</td>
+                      <td class="px-2 py-2 text-black">{project}</td>
+                    </tr>
+                    <tr>
+                      <td class="px-2 py-2  font-semibold">About:</td>
+                      <td class="px-2 py-2">
+                        {bio !== ""
+                          ? bio
+                          : `My name is ${first_name}, and I am ${role}`}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
           </button>
           {/* Edit user */}
-          <Form userId={_id} />
+          {isShown && <Form userId={_id} />}
           {/* Delete user */}
           <button
             onClick={() => dispatch(deleteUser(_id))}
@@ -74,6 +112,4 @@ const Actions = ({ user }) => {
       )}
     </div>
   );
-};
-
-export default Actions;
+}

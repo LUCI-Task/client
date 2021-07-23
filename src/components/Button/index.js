@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = (props) => {
+export default function Button(props) {
   return (
     <button
       data-testid="custom_button"
@@ -11,6 +11,4 @@ const Button = (props) => {
       {props.svg && <props.svg></props.svg>}
     </button>
   );
-};
-
-export default Button;
+}

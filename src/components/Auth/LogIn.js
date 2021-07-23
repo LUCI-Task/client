@@ -1,7 +1,5 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
-
-//redux
 import { useDispatch } from "react-redux";
 import { LOGIN } from "../../state/types";
 

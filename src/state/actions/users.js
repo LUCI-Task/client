@@ -1,4 +1,9 @@
-import * as api from "../../api";
+import {
+  fetchUsers,
+  createSingleUser,
+  updateSingleUser,
+  deleteSingleUser,
+} from "../../api";
 
 import {
   FETCH_ALL_USERS,
@@ -7,10 +12,9 @@ import {
   DELETE_USER,
 } from "../types";
 
-//action creators
 export const getUsers = () => async (dispatch) => {
   try {
-    const { data } = await api.fetchUsers();
+    const { data } = await fetchUsers();
     dispatch({ type: FETCH_ALL_USERS, payload: data });
   } catch (err) {
     console.log(err);
@@ -19,7 +23,7 @@ export const getUsers = () => async (dispatch) => {
 
 export const createUser = (userData) => async (dispatch) => {
   try {
-    const { data } = await api.createUser(userData);
+    const { data } = await createSingleUser(userData);
     dispatch({ type: CREATE_NEW_USER, payload: data });
   } catch (err) {
     console.log(err);
@@ -28,7 +32,7 @@ export const createUser = (userData) => async (dispatch) => {
 
 export const updateUser = (id, info) => async (dispatch) => {
   try {
-    const { data } = await api.updateUser(id, info);
+    const { data } = await updateSingleUser(id, info);
 
     dispatch({ type: UPDATE_USER, payload: data });
   } catch (error) {
@@ -38,7 +42,7 @@ export const updateUser = (id, info) => async (dispatch) => {
 
 export const deleteUser = (id) => async (dispatch) => {
   try {
-    await api.deleteUser(id);
+    await deleteSingleUser(id);
     dispatch({ type: DELETE_USER, payload: id });
   } catch (err) {
     console.log(err);

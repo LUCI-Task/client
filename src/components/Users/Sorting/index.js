@@ -1,17 +1,21 @@
 import React from "react";
-import classNames from "classnames";
-
-//redux
 import { useSelector } from "react-redux";
-
-//helper funcs
+import classNames from "classnames";
 import {
   counter,
   SortGuideTxt,
   leftSort,
 } from "../../../HelperFunctions/Helpers";
+import Search from "../Search";
 
-const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
+export default function Sorting({
+  handleChange,
+  search,
+  sortValue,
+  setSortValue,
+  setOrder,
+  order,
+}) {
   const state = useSelector((state) => state.users);
 
   const leftButtons = ["name", "email"];
@@ -21,8 +25,8 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
     <>
       {state.length ? (
         <div>
-          <div className="flex items-center justify-between pb-2 text-gray-600 border-b ">
-            <div className="text-gray-500">
+          <div className="flex flex-col items-center pb-2 text-sm text-gray-600 border-b sm:text-base sm:flex-row px-14">
+            <div className="text-gray-500 ">
               <span>
                 users-
                 <span className="mr-2 text-blue-600 text-md">
@@ -42,6 +46,7 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
                 </span>
               </span>
             </div>
+            <Search handleChange={handleChange} search={search} />
           </div>
 
           <div className="flex justify-between mt-6 text-gray-400 ">
@@ -106,6 +111,4 @@ const Sorting = ({ sortValue, setSortValue, setOrder, order }) => {
       ) : null}
     </>
   );
-};
-
-export default Sorting;
+}

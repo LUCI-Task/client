@@ -1,28 +1,27 @@
-import React, { lazy, Suspense, useEffect } from "react";
-import PuffLoader from "react-spinners/PuffLoader";
-//redux
-import { useDispatch } from "react-redux";
-//API
-import { getUsers } from "./state/action/users";
-//components
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "./state/actions/users";
 import Navbar from "./components/Navbar";
+import Users from "./components/Users";
 
-// lazy load
-const HomePage = lazy(() => import("./components/Users"));
-
-const App = () => {
+function App() {
   const dispatch = useDispatch();
+  const admin = useSelector((state) => state.auth.authData);
+
   useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+    if (admin === null) {
+      return;
+    } else {
+      dispatch(getUsers());
+    }
+  }, [admin, dispatch]);
+
   return (
     <div className="flex flex-col w-full h-screen xl:flex-row ">
       <Navbar />
-      <Suspense maxDuration={100} fallback={<PuffLoader />}>
-        <HomePage />
-      </Suspense>
+      <Users />
     </div>
   );
-};
+}
 
 export default App;

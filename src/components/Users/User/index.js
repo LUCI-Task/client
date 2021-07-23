@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import moment from "moment";
 import classNames from "classnames";
-
-//components
 import Actions from "./Actions";
 
-const User = ({ user }) => {
+export default function User({ user }) {
   const [isShown, setIsShown] = useState(false);
   return (
     <div
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
       className={classNames(
-        "flex justify-between sm:px-4 sm:py-4 mt-5 bg-white rounded-lg shadow-xl cursor-pointer ",
+        "flex justify-between sm:px-4 sm:py-4 mt-2 bg-white rounded-lg shadow-xl cursor-pointer ",
         {
           "bg-gray-100": isShown,
         }
@@ -38,8 +36,9 @@ const User = ({ user }) => {
             {user.email}
           </span>
         </div>
+
         <div className={classNames("opacity-0", { "opacity-100": isShown })}>
-          <Actions user={user} />
+          <Actions isShown={isShown} user={user} />
         </div>
 
         <div className="flex flex-col justify-end w-7/12 text-center sm:mx-6 lg:w-full lg:space-x-3 lg:flex-row">
@@ -64,6 +63,4 @@ const User = ({ user }) => {
       </div>
     </div>
   );
-};
-
-export default User;
+}
