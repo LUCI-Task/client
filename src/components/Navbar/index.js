@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
-//components
 import FormModal from "../Form";
 import LogIn from "../Auth/LogIn";
 import LogOut from "../Auth/LogOut";
 
-const Navbar = () => {
+export default function Navbar() {
   const admin = useSelector((state) => state.auth.authData);
 
   return (
@@ -34,6 +33,4 @@ const Navbar = () => {
       )}
     </nav>
   );
-};
-
-export default Navbar;
+}

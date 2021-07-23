@@ -1,7 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-
-//components
 import Form from "./Form";
 import Button from "../Button";
 
@@ -16,7 +14,7 @@ const customStyles = {
   },
 };
 
-const ModalComponent = ({ userId }) => {
+export default function ModalComponent({ userId }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -78,6 +76,4 @@ const ModalComponent = ({ userId }) => {
       </Modal>
     </div>
   );
-};
-
-export default ModalComponent;
+}
