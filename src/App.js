@@ -19,7 +19,15 @@ function App() {
   return (
     <div className="flex flex-col w-full h-screen xl:flex-row ">
       <Navbar />
-      <Users />
+      {admin !== null ? (
+        <Users />
+      ) : (
+        <div className="w-full h-screen bg-center bg-no-repeat bg-access-cat">
+          <h2 className="py-12 text-4xl font-semibold text-center text-gray-400">
+            Login to manage users!
+          </h2>
+        </div>
+      )}
     </div>
   );
 }

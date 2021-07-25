@@ -37,10 +37,10 @@ export default function Actions({ user, isShown }) {
               />
             </svg>
 
-            <section class="opacity-0 w-64 sm:w-96  h-auto bg-white text-black text-center text-xs rounded-lg py-6 px-6 absolute group-hover:opacity-100 pointer-events-none -left-36 shadow-xl border-2 border-gray mt-3">
-              <div class="flex photo-wrapper ">
+            <section className="absolute w-64 h-auto px-6 py-6 mt-3 text-xs text-center text-black bg-white border-2 rounded-lg shadow-xl opacity-0 pointer-events-none sm:w-96 group-hover:opacity-100 -left-36 border-gray">
+              <div className="flex photo-wrapper ">
                 <img
-                  class="w-12 h-12 rounded-full object-cover mx-auto bg-gray-100 mr-22"
+                  className="object-cover w-12 h-12 mx-auto bg-gray-100 rounded-full mr-22"
                   src={
                     user.selectedFile ||
                     `https://robohash.org/${user.first_name}?set=set2`
@@ -48,8 +48,8 @@ export default function Actions({ user, isShown }) {
                   alt={first_name}
                 />
               </div>
-              <div class="p-2 ">
-                <h3 class="text-center text-xl text-gray-900 font-medium leading-8">
+              <div className="p-2 ">
+                <h3 className="text-xl font-medium leading-8 text-center text-gray-900">
                   {first_name} {last_name}{" "}
                   <span
                     className={classNames(
@@ -61,22 +61,22 @@ export default function Actions({ user, isShown }) {
                     )}
                   ></span>
                 </h3>
-                <div class="text-center text-gray-400 text-xs font-semibold">
+                <div className="text-xs font-semibold text-center text-gray-400">
                   <p>{role}</p>
                 </div>
-                <table class="text-xs my-3 mx-auto">
+                <table className="mx-auto my-3 text-xs">
                   <tbody>
                     <tr>
-                      <td class="px-2 py-2  font-semibold">Email:</td>
-                      <td class="px-2 py-2">{email}</td>
+                      <td className="px-2 py-2 font-semibold">Email:</td>
+                      <td className="px-2 py-2">{email}</td>
                     </tr>
                     <tr>
-                      <td class="px-2 py-2  font-semibold">Project:</td>
-                      <td class="px-2 py-2 text-black">{project}</td>
+                      <td className="px-2 py-2 font-semibold">Project:</td>
+                      <td className="px-2 py-2 text-black">{project}</td>
                     </tr>
                     <tr>
-                      <td class="px-2 py-2  font-semibold">About:</td>
-                      <td class="px-2 py-2">
+                      <td className="px-2 py-2 font-semibold">About:</td>
+                      <td className="px-2 py-2">
                         {bio !== ""
                           ? bio
                           : `My name is ${first_name}, and I am ${role}`}

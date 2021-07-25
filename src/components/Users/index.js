@@ -1,12 +1,12 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
+import GridLoader from "react-spinners/GridLoader";
 import LazyLoadPlaceholder from "./Placeholder";
 import Sorting from "./Sorting";
 import { compareValues } from "../../HelperFunctions/Helpers";
 
 export default function Users() {
   const users = useSelector((state) => state.users);
-  const admin = useSelector((state) => state.auth.authData);
 
   const [data, SetData] = useState([]);
   const [sortValue, setSortValue] = useState("");
@@ -26,7 +26,7 @@ export default function Users() {
   return (
     <main className="flex flex-col flex-1 bg-gray-100 xl:mx-auto ">
       <div className="w-full pb-4 mx-auto px-9"></div>
-      {admin !== null ? (
+      {users.length > 0 ? (
         <>
           <h2 className="py-12 text-4xl font-semibold text-center text-gray-400">
             User Management Dashboard
@@ -56,12 +56,9 @@ export default function Users() {
           </div>
         </>
       ) : (
-        <>
-          <h2 className="py-12 text-4xl font-semibold text-center text-gray-400">
-            Login to manage users!
-          </h2>
-          <div className="w-full h-screen bg-center bg-no-repeat bg-access-cat"></div>
-        </>
+        <div className="flex items-center justify-center w-full mx-auto xl:h-screen xl:w-10/12">
+          <GridLoader size={20} margin={12} color="blue" />
+        </div>
       )}
     </main>
   );
