@@ -1,6 +1,7 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
-import GridLoader from "react-spinners/GridLoader";
+// import GridLoader from "react-spinners/GridLoader";
+import Loader from "../Loader/Loader";
 import LazyLoadPlaceholder from "./Placeholder";
 import Sorting from "./Sorting";
 import { compareValues } from "../../HelperFunctions/Helpers";
@@ -57,7 +58,8 @@ export default function Users() {
         </>
       ) : (
         <div className="flex items-center justify-center w-full mx-auto xl:h-screen xl:w-10/12">
-          <GridLoader size={20} margin={12} color="blue" />
+          <Loader />
+          {/* <GridLoader size={20} margin={12} color="blue" /> */}
         </div>
       )}
     </main>
